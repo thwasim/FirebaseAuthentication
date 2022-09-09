@@ -47,11 +47,10 @@ class Homepagecontroller extends GetxController {
       final snapshot = await uploadTask;
       url = await snapshot.ref.getDownloadURL();
       log('..............img=  $url');
-      final docuser = FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.email.toString()).doc(FirebaseAuth.instance.currentUser!.uid.toString());
-      docuser.update({
-      'image':url
-      });
-
+      final docuser = FirebaseFirestore.instance
+          .collection(FirebaseAuth.instance.currentUser!.email.toString())
+          .doc(FirebaseAuth.instance.currentUser!.uid.toString());
+      docuser.update({'image': url});
     } catch (e) {
       log('...............exception = $e');
     }
