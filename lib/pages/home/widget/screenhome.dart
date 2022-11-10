@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_program/model/usermodel.dart';
-import 'package:firebase_program/pages/home/controller/homepagecontroller.dart';
 import 'package:firebase_program/pages/home/widget/drawer.dart';
-import 'package:firebase_program/pages/home/widget/userprfile.dart';
 import 'package:firebase_program/pages/home/widget/viewall.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

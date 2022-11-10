@@ -3,13 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_program/model/usermodel.dart';
 import 'package:firebase_program/pages/home/widget/screenhome.dart';
-import 'package:firebase_program/pages/singup/controller/singupcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class RegistrationScreen extends GetView<Singupcontroller> {
+class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({Key? key}) : super(key: key);
 
   // editing Controller
@@ -21,14 +20,10 @@ class RegistrationScreen extends GetView<Singupcontroller> {
 
   final _auth = FirebaseAuth.instance;
 
-  // string for displaying the error Message
   String? errorMessage;
 
-  // our form key
   final formKey = GlobalKey<FormState>();
-  // editing Controller
 
-  @override
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -260,16 +255,11 @@ class RegistrationScreen extends GetView<Singupcontroller> {
   }
 
   postDetailsToFirestore() async {
-    // calling our firestore
-    // calling our user model
-    // sedning these values
-
     FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     User? user = _auth.currentUser;
 
     Usermodel userModel = Usermodel();
 
-    // writing all the values
     userModel.email = user!.email;
     userModel.uid = user.uid;
     userModel.firstname = firstNameEditingController.text;

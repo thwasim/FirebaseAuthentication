@@ -1,6 +1,3 @@
-
-
-
 class Usermodel {
   String uid;
   String? email;
